@@ -341,7 +341,7 @@
                 if (resultType === 'bao') resultDisplay = "BÃO";
 
                 if (resultType === 'bao') {
-                    let losePoints = 1500; 
+                    let losePoints = 4000; 
                     score -= losePoints;
                     messageEl.innerHTML = `Tổng: ${total} - <span class="bao"> ${resultDisplay} coin</span> <br> <span class="lose">Nhà cái ăn hết (-${losePoints})</span>`;
                     
@@ -349,7 +349,6 @@
                     diceElements.forEach(d => d.classList.add('spin-bao'));
                 } 
                 else if (userChoice === resultType) {
-                    // THẮNG
                     let winPoints = Math.floor(Math.random() * (500 - 50 + 1)) + 50;
                     score += winPoints;
                     messageEl.innerHTML = `Tổng: ${total} (${resultDisplay}) - <span class="win">BẠN THẮNG (+${winPoints} coin)</span>`;
@@ -357,8 +356,7 @@
                     body.classList.add('bg-win');
                     diceElements.forEach(d => d.classList.add('bounce'));
                 } else {
-                    // THUA: Trừ ngẫu nhiên 300 - 600
-                    let losePoints = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
+                    let losePoints = Math.floor(Math.random() * (1200 - 300 + 1)) + 300;
                     score -= losePoints;
                     messageEl.innerHTML = `Tổng: ${total} (${resultDisplay}) - <span class="lose">BẠN THUA (-${losePoints} coin)</span>`;
                     
