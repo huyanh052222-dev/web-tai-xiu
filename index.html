@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tài Xỉu Vui Vẻ</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -199,10 +200,10 @@
 
     <div class="container">
         <h1>TÀI XỈU VUI VẺ</h1>
-        <p style="font-size: 14px; color: #bdc3c7;">(3 & 18 là BÃO - Nhà cái ăn)</p>
+        <p style="font-size: 14px; color: #bdc3c7;">(Just for fun)</p>
         
         <div class="score-board">
-            Điểm của bạn: <span id="score">100 vốn</span>
+            Điểm của bạn: <span id="score">100 coin vốn</span>
         </div>
 
         <div class="dice-container" id="diceContainer">
@@ -303,7 +304,7 @@
                 if (resultType === 'bao') {
                     let losePoints = 1500; 
                     score -= losePoints;
-                    messageEl.innerHTML = `Tổng: ${total} - <span class="bao"> ${resultDisplay} </span> <br> <span class="lose">Nhà cái ăn hết (-${losePoints})</span>`;
+                    messageEl.innerHTML = `Tổng: ${total} - <span class="bao"> ${resultDisplay} coin</span> <br> <span class="lose">Nhà cái ăn hết (-${losePoints})</span>`;
                     
                     body.classList.add('bg-bao');
                     diceElements.forEach(d => d.classList.add('spin-bao'));
@@ -312,7 +313,7 @@
                     // THẮNG
                     let winPoints = Math.floor(Math.random() * (500 - 50 + 1)) + 50;
                     score += winPoints;
-                    messageEl.innerHTML = `Tổng: ${total} (${resultDisplay}) - <span class="win">BẠN THẮNG (+${winPoints})</span>`;
+                    messageEl.innerHTML = `Tổng: ${total} (${resultDisplay}) - <span class="win">BẠN THẮNG (+${winPoints} coin)</span>`;
                     
                     body.classList.add('bg-win');
                     diceElements.forEach(d => d.classList.add('bounce'));
@@ -320,13 +321,13 @@
                     // THUA: Trừ ngẫu nhiên 300 - 600
                     let losePoints = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
                     score -= losePoints;
-                    messageEl.innerHTML = `Tổng: ${total} (${resultDisplay}) - <span class="lose">BẠN THUA (-${losePoints})</span>`;
+                    messageEl.innerHTML = `Tổng: ${total} (${resultDisplay}) - <span class="lose">BẠN THUA (-${losePoints} coin)</span>`;
                     
                     body.classList.add('bg-lose');
                     diceElements.forEach(d => d.classList.add('shake-horizontal'));
                 }
 
-                scoreEl.innerText = score;
+                scoreEl.innerText = `${score} coin`;
                 btnXiu.disabled = false;
                 btnTai.disabled = false;
 
